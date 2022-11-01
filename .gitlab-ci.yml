@@ -38,8 +38,8 @@ deploy to surge:
     - npm install --global surge
     - surge --project ./public --domain jasmyns.surge.sh
 
-deployment tests:
-  stage: test deployment
+test deployment:
+  stage: deployment tests
   image: alpine
   script:
     - curl "https://jasmyns.surge.sh/" | grep -q "jasmyns"
