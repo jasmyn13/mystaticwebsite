@@ -39,7 +39,7 @@ deploy to surge:
     - surge --project ./public --domain jasmyns.surge.sh
 
 deployment tests:
-  stage: deployments tests
+  stage: test deployment
   image: alpine
   script:
     - curl "https://jasmyns.surge.sh/" | grep -q "jasmyns"
