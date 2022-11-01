@@ -19,7 +19,7 @@ test artifact:
   script:
     - grep -q "Gatsby" ./public/index.html
     
-  test website:
+test website:
     image: node
     stage: test
     script:
