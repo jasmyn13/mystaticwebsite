@@ -2,6 +2,7 @@ stages:
   - build
   - test 
   - deploy
+  - deployment tests
 
 build website:
   stage: build
@@ -36,3 +37,9 @@ deploy to surge:
   script:
     - npm install --global surge
     - surge --project ./public --domain jasmyns.surge.sh
+
+test deployment:
+  stage: deployments tests
+  image: alpine
+  script:
+    - curl "https://jasmyns.surge.sh/" | grep -q "jasmyns"
