@@ -1,6 +1,7 @@
 stages:
   - build
   - test 
+  - deploy
 
 build website:
   stage: build
@@ -28,3 +29,9 @@ test website:
       - gatsby serve & 
       - sleep 10
       - curl "http://localhost:9000" | tac | tac | grep -q "Gatsby" 
+
+deploy to surge:
+  image: node
+  script:
+    - npm install --global surge
+    - surge --project ./public --domain jasmyns.surge.sh
