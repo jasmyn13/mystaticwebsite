@@ -38,7 +38,7 @@ deploy to surge:
     - npm install --global surge
     - surge --project ./public --domain jasmyns.surge.sh
 
-test deployment:
+deployment tests:
   stage: deployments tests
   image: alpine
   script:
