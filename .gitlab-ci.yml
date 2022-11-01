@@ -42,4 +42,4 @@ test deployment:
   stage: deployment tests
   image: alpine
   script:
-    - curl "https://jasmyns.surge.sh/" | grep -q "jasmyns"
+    - curl -s "https://jasmyns.surge.sh/" | grep -q "hello"
