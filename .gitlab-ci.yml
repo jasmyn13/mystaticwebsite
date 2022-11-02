@@ -1,3 +1,5 @@
+image: node
+
 stages:
   - build
   - test 
@@ -6,7 +8,6 @@ stages:
 
 build website:
   stage: build
-  image: node:lts
   script:
     - npm install
     - npm install -g gatsby-cli
@@ -16,13 +17,11 @@ build website:
       - ./public
 
 test artifact:
-  image: alpine
   stage: test
   script:
     - grep -q "Gatsby" ./public/index.html
     
 test website:
-    image: node
     stage: test
     script:
       - npm install
@@ -33,13 +32,11 @@ test website:
 
 deploy to surge:
   stage: deploy
-  image: node
   script:
     - npm install --global surge
     - surge --project ./public --domain jasmyns.surge.sh
 
 test deployment:
   stage: deployment tests
-  image: alpine
   script:
     - curl -s "https://jasmyns.surge.sh" | grep -q "Gatsby"
